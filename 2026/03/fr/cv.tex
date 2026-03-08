@@ -1,0 +1,205 @@
+%-------------------------
+% Résumé / CV - Yann COTINEAU
+% Version : 1.0.0 - 2026-03 (FR)
+% Based off of: https://github.com/jakegut/resume
+% License: MIT
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\input{glyphtounicode}
+
+%---- Page style ----
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%---- Margins ----
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%---- Section formatting ----
+\titleformat{\section}{
+    \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%---- ATS parsability ----
+\pdfgentounicode=1
+
+%---- Custom commands ----
+\newcommand{\resumeItem}[1]{
+    \item\small{
+        {#1 \vspace{-2pt}}
+    }
+}
+
+\newcommand{\resumeSubheading}[4]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%  RESUME STARTS HERE
+%-------------------------------------------
+
+\begin{document}
+
+%---- Heading ----
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{\Huge \scshape Yann Cotineau} &
+    \begin{tabular}[c]{r}
+        \small \faEnvelope\ \href{mailto:yanncotineau@gmail.com}{yanncotineau@gmail.com} \\
+        \small \faPhone\ +33\,6\,60\,43\,56\,34
+    \end{tabular}
+\end{tabular*}
+
+\begin{center}
+    \small
+    \faGithub\ \href{https://github.com/yanncotineau}{github.com/yanncotineau} $|$
+    \faGlobe\ \href{https://yanncotineau.dev}{yanncotineau.dev} $|$
+    \faLinkedin\ \href{https://linkedin.com/in/yanncotineau}{linkedin.com/in/yanncotineau}
+\end{center}
+
+Ingénieur logiciel fullstack passionné par l'IA. Je conçois, développe et mets en production des applications modernes et robustes, avec un souci constant de qualité, de bonnes pratiques d'architecture et de déploiement continu. Ouvert à de nouvelles opportunités.
+
+%---- Experience ----
+\section{Expérience Professionnelle}
+    \resumeSubHeadingListStart
+
+        \resumeSubheading
+            {Analyste Développeur}{Juin 2024 -- Présent}
+            {IMATECH, Groupe IMA}{Nantes, France}
+            \resumeItemListStart
+                \resumeItem{Développement d'une solution \textbf{RAG} juridique avec agents IA (\textbf{LangChain}, \textbf{LangGraph}), backend \textbf{Fastify} et frontend \textbf{React}, alimentée par des fiches juridiques internes, utilisée par 150 juristes internes et commercialisée.}
+                \resumeItem{Conception et implémentation d'une architecture microservices modulaire et configurable (\textbf{Node.js} / \textbf{Fastify}), pour la vectorisation incrémentale de documents (\textbf{RAG}), réduisant significativement les coûts d'inférence.}
+                \resumeItem{Refonte complète d'applications legacy vers des architectures full-stack modernes (\textbf{Java Spring Boot} / \textbf{React}) : amélioration de l'\textbf{UI/UX} avec une interface \textbf{Ant Design} réactive et renforcement de la sécurité via \textbf{SSO}.}
+                \resumeItem{Contribution à la maintenance et à l'évolution des applications CRM internes (\textbf{Java Spring Boot}, \textbf{Ext.js}) : ajout de fonctionnalités, tests unitaires, documentation, en équipe \textbf{Agile} avec des sprints de 2 semaines.}
+                \resumeItem{Mise en place de pipelines \textbf{CI/CD}, conteneurisation et déploiement sur \textbf{Kubernetes} via \textbf{Azure DevOps}.}
+                \resumeItem{Collaboration étroite avec les équipes métier pour affiner les besoins et continuellement optimiser l'\textbf{UI/UX}.}
+            \resumeItemListEnd
+
+        \resumeSubheading
+            {Développeur Web}{Août 2023 -- Déc. 2023}
+            {8P Design}{Montréal, QC}
+            \resumeItemListStart
+                \resumeItem{Développement d'une application \textbf{RAG} full-stack (\textbf{Drupal 10}, \textbf{Vue.js}) avec Pinecone et l'API d'OpenAI (GPT-4) pour automatiser les interactions client et la génération de rapports. Déploiement continu via \textbf{GitLab CI/CD}.}
+                \resumeItem{Amélioration des processus \textbf{CI/CD} internes (dev/recette/prod) avec \textbf{conteneurisation} en local et déploiement automatisé. Rédaction de documentation pour faciliter la collaboration et l'intégration de nouveaux développeurs.}
+                \resumeItem{Maintenance et amélioration de sites clients en production (\textbf{PHP}, \textbf{Drupal}, \textbf{Wordpress}) : corrections, ajustements selon retours utilisateurs et déploiements réguliers.}
+                \resumeItem{Veille informationnelle sur les nouvelles possibilités offertes par l'IA pour enrichir les services proposés aux clients.}
+            \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%---- Education ----
+\section{Formation}
+    \resumeSubHeadingListStart
+
+        \resumeSubheading
+            {Université du Québec à Chicoutimi}{Saguenay, QC}
+            {Maîtrise en Informatique (professionnel)}
+            {Août 2022 -- Jan. 2024}
+        \vspace{2pt}
+
+        \resumeSubheading
+            {ENSISA}{Mulhouse, France}
+            {Ingénieur Informatique et Réseaux (double diplôme France/Québec)}
+            {Sep. 2020 -- Jan. 2024}
+        \vspace{2pt}
+
+        \resumeSubheading
+            {Lycée Henri Bergson}{Angers, France}
+            {Classe Préparatoire aux Grandes Écoles (Mathématiques-Physique-Sciences de l'Ingénieur)}
+            {Sep. 2018 -- Juillet 2020}
+
+    \resumeSubHeadingListEnd
+
+%---- Projects ----
+\section{Projets}
+    \resumeSubHeadingListStart
+
+        \resumeProjectHeading
+            {\textbf{LichessTrends} $|$ \emph{Rust, Next.js, React, TypeScript, GitHub Actions, Vercel}}{\href{https://lichesstrends.com}{\textbf{lichesstrends.com}}}
+            \resumeItemListStart
+                \resumeItem{Développement d'un agrégateur haute performance en \textbf{Rust} pour le traitement en streaming de 100M+ parties d'échecs mensuelles depuis \textbf{Lichess} (plateforme d'échecs en ligne), générant des statistiques agrégées exploitables.}
+                \resumeItem{Conception d'une application \textbf{Next.js} / \textbf{React}, exposant une \textbf{API REST}, avec des visualisations interactives (\textbf{Recharts}, \textbf{TanStack Query}) pour explorer ces statistiques (parties, classements, ouvertures populaires, etc.).}
+                \resumeItem{Déploiement de l'application sur \textbf{Vercel} avec mise en cache côté serveur pour accélérer les requêtes. Automatisation de l'ingestion mensuelle des nouvelles données de Lichess via un workflow \textbf{GitHub Actions}.}
+            \resumeItemListEnd
+
+        \resumeProjectHeading
+            {\textbf{Blog et site portfolio} $|$ \emph{Next.js, React, TypeScript, MDX, GitHub Actions, Vercel}}{\href{https://yanncotineau.dev}{\textbf{yanncotineau.dev}}}
+            \resumeItemListStart
+                \resumeItem{Conception de mon blog en 2 parties : articles en \textbf{MDX} versionnés dans un repo \textbf{Git} dédié, transformés en pages statiques par un CMS custom \textbf{Next.js} (\textbf{Contentlayer}) avec composants \textbf{React} interactifs intégrés au contenu.}
+                \resumeItem{Redéploiement automatique du blog via \textbf{GitHub Actions} et deploy hook \textbf{Vercel} à chaque changement d'article, avec extraction des métadonnées \textbf{Git} par fichier (commit, date, diff) affichées sur chaque article.}
+                \resumeItem{Développement d'un site portfolio en \textbf{Next.js} / \textbf{React} présentant mon parcours, mes compétences, mes expériences et mes projets, et récupérant via \textbf{API REST} les derniers articles disponibles du blog. Déploiement sur \textbf{Vercel}.}
+            \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%---- Skills ----
+\section{Compétences Techniques}
+    \begin{itemize}[leftmargin=0.15in, label={}]
+        \small{\item{
+            \textbf{Langages} : Java, TypeScript, JavaScript, Python, SQL, PHP, HTML/CSS \\
+            \textbf{Frontend} : React, Vue.js, Next.js, Vitest, TanStack Query, Ant Design, MUI \\
+            \textbf{Backend} : Spring Boot, Express, FastAPI, Liquibase, Fastify, Node.js, JUnit, Jest \\
+            \textbf{IA \& LLMs} : LangChain, LangGraph, Prompt Engineering, RAG, Agentic RAG, Ollama, Pinecone, Qdrant \\
+            \textbf{DevOps \& CI/CD} : Docker, Kubernetes, Azure DevOps, Harbor, GitHub Actions, Renovate, Nexus \\
+            \textbf{Outils} : Git, GitHub, VS Code, IntelliJ, Postman, WSL, GitHub Copilot, Figma \\
+            \textbf{Méthodes} : Développement Agile, GitFlow, Scrum
+        }}
+    \end{itemize}
+
+%---- Languages ----
+\section{Langues}
+    \textbf{Français} (langue maternelle), \textbf{Anglais} (courant/professionnel, C1)
+
+%-------------------------------------------
+\end{document}
