@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Find latest FR and EN .tex files
         id: find
@@ -29,23 +29,25 @@ jobs:
           echo "fr_version=$FR_VERSION" >> "$GITHUB_OUTPUT"
           echo "en_version=$EN_VERSION" >> "$GITHUB_OUTPUT"
 
+          echo "fr_dir=$(dirname $LATEST_FR)" >> "$GITHUB_OUTPUT"
+          echo "en_dir=$(dirname $LATEST_EN)" >> "$GITHUB_OUTPUT"
+
       - name: Compile FR CV to PDF
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: ${{ steps.find.outputs.fr_tex }}
+          root_file: fr.tex
+          working_directory: ${{ steps.find.outputs.fr_dir }}
 
       - name: Compile EN CV to PDF
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: ${{ steps.find.outputs.en_tex }}
+          root_file: en.tex
+          working_directory: ${{ steps.find.outputs.en_dir }}
 
       - name: Prepare release assets
         run: |
-          FR_DIR=$(dirname "${{ steps.find.outputs.fr_tex }}")
-          EN_DIR=$(dirname "${{ steps.find.outputs.en_tex }}")
-
-          cp "$FR_DIR/fr.pdf" "COTINEAU_Yann_CV_fr.pdf"
-          cp "$EN_DIR/en.pdf" "COTINEAU_Yann_CV_en.pdf"
+          cp "${{ steps.find.outputs.fr_dir }}/fr.pdf" "COTINEAU_Yann_CV_fr.pdf"
+          cp "${{ steps.find.outputs.en_dir }}/en.pdf" "COTINEAU_Yann_CV_en.pdf"
 
       - name: Create or update release
         uses: softprops/action-gh-release@v2
