@@ -1,0 +1,208 @@
+%-------------------------
+% Résumé / CV - Yann COTINEAU
+% Version : 1.0.0 - 2026-04 (EN)
+% Based off of: https://github.com/jakegut/resume
+% License: MIT
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\input{glyphtounicode}
+
+%---- Page style ----
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%---- Margins ----
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%---- Section formatting ----
+\titleformat{\section}{
+    \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%---- ATS parsability ----
+\pdfgentounicode=1
+
+%---- Custom commands ----
+\newcommand{\resumeItem}[1]{
+    \item\small{
+        {#1 \vspace{-2pt}}
+    }
+}
+
+\newcommand{\resumeSubheading}[4]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%  RESUME STARTS HERE
+%-------------------------------------------
+
+\begin{document}
+
+%---- Heading ----
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{\Huge Yann Cotineau} &
+    \begin{tabular}[c]{r}
+        \small \faEnvelope\ \href{mailto:yanncotineau@gmail.com}{yanncotineau@gmail.com} \\
+        \small \faPhone\ +33\,6\,60\,43\,56\,34
+    \end{tabular}
+\end{tabular*}
+
+\begin{center}
+    \small
+    \faGithub\ \href{https://github.com/yanncotineau}{github.com/yanncotineau} $|$
+    \faGlobe\ \href{https://yanncotineau.dev}{yanncotineau.dev} $|$
+    \faLinkedin\ \href{https://linkedin.com/in/yanncotineau}{linkedin.com/in/yanncotineau}
+\end{center}
+
+Full stack software engineer passionate about AI. I design, develop and ship modern, robust applications, with a constant focus on quality, architectural best practices and continuous deployment. Holder of a valid Post-Graduation Work Permit (PGWP) in Canada. Open to new opportunities.
+
+%---- Experience ----
+\section{Professional Experience}
+    \resumeSubHeadingListStart
+
+        \resumeSubheading
+            {Software Developer}{June 2024 -- Present}
+            {IMATECH, Groupe IMA}{Nantes, France}
+            \resumeItemListStart
+                \resumeItem{Developed a legal \textbf{RAG} solution with AI agents (\textbf{LangChain}, \textbf{LangGraph}), \textbf{Fastify} backend and \textbf{React} frontend, powered by internal legal documents, used by 150 in-house lawyers and commercialized.}
+                \resumeItem{Designed and implemented a modular, configurable microservices architecture (\textbf{Node.js} / \textbf{Fastify}) for incremental document vectorization (\textbf{RAG}), significantly reducing inference costs.}
+                \resumeItem{Led the complete overhaul of legacy applications to modern full-stack architectures (\textbf{Java Spring Boot} / \textbf{React}): improved \textbf{UI/UX} with a responsive \textbf{Ant Design} interface and strengthened security via \textbf{SSO}.}
+                \resumeItem{Contributed to the maintenance and evolution of internal CRM applications (\textbf{Java Spring Boot}, \textbf{Ext.js}): feature development, unit testing, documentation, in an \textbf{Agile} team with 2-week sprints.}
+                \resumeItem{Set up \textbf{CI/CD} pipelines, containerization and deployment on \textbf{Kubernetes} via \textbf{Azure DevOps}.}
+                \resumeItem{Collaborated closely with business teams to refine requirements and continuously optimize \textbf{UI/UX}.}
+            \resumeItemListEnd
+
+        \resumeSubheading
+            {Web Developer}{Aug. 2023 -- Dec. 2023}
+            {8P Design}{Montréal, QC}
+            \resumeItemListStart
+                \resumeItem{Developed a full-stack \textbf{RAG} application (\textbf{Drupal 10}, \textbf{Vue.js}) with Pinecone and OpenAI's API (GPT-4) to automate client interactions and report generation. Continuous deployment via \textbf{GitLab CI/CD}.}
+                \resumeItem{Improved internal \textbf{CI/CD} processes (dev/staging/prod) with local \textbf{containerization} and automated deployment. Wrote documentation to facilitate collaboration and onboarding of new developers.}
+                \resumeItem{Maintained and improved client websites in production (\textbf{PHP}, \textbf{Drupal}, \textbf{Wordpress}): bug fixes, adjustments based on user feedback and regular deployments.}
+                \resumeItem{Conducted technology watch on new AI capabilities to enrich services offered to clients.}
+            \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%---- Education ----
+\section{Education}
+    \resumeSubHeadingListStart
+
+        \resumeSubheading
+            {Université du Québec à Chicoutimi}{Saguenay, QC}
+            {Master's in Computer Science (professional)}
+            {Aug. 2022 -- Jan. 2024}
+        \vspace{2pt}
+
+        \resumeSubheading
+            {ENSISA}{Mulhouse, France}
+            {Computer Science \& Networks Engineering (dual degree France/Québec)}
+            {Sep. 2020 -- Jan. 2024}
+        \vspace{2pt}
+
+        \resumeSubheading
+            {Lycée Henri Bergson}{Angers, France}
+            {Preparatory Classes for Engineering Schools (Mathematics-Physics-Engineering Sciences)}
+            {Sep. 2018 -- July 2020}
+
+    \resumeSubHeadingListEnd
+
+%---- Projects ----
+\section{Projects}
+    \resumeSubHeadingListStart
+
+        \resumeProjectHeading
+            {\textbf{LichessTrends} $|$ \emph{Rust, Next.js, React, TypeScript, GitHub Actions, Vercel}}{\href{https://lichesstrends.com}{\textbf{lichesstrends.com}}}
+            \resumeItemListStart
+                \resumeItem{Developed a high-performance aggregator in \textbf{Rust} for streaming processing of 100M+ monthly chess games from \textbf{Lichess} (online chess platform), generating actionable aggregated statistics.}
+                \resumeItem{Designed a \textbf{Next.js} / \textbf{React} application exposing a \textbf{REST API}, with interactive visualizations (\textbf{Recharts}, \textbf{TanStack Query}) to explore these statistics (games, ratings, popular openings, etc.).}
+                \resumeItem{Deployed the application on \textbf{Vercel} with server-side caching to speed up queries. Automated monthly ingestion of new Lichess data via a \textbf{GitHub Actions} workflow.}
+            \resumeItemListEnd
+
+        \resumeProjectHeading
+            {\textbf{Blog \& Portfolio Website} $|$ \emph{Next.js, React, TypeScript, MDX, GitHub Actions, Vercel}}{\href{https://yanncotineau.dev}{\textbf{yanncotineau.dev}}}
+            \resumeItemListStart
+                \resumeItem{Designed my blog in 2 parts: \textbf{MDX} articles versioned in a dedicated \textbf{Git} repo, transformed into static pages by a custom \textbf{Next.js} CMS (\textbf{Contentlayer}) with interactive \textbf{React} components embedded in the content.}
+                \resumeItem{Automatic redeployment of the blog via \textbf{GitHub Actions} and \textbf{Vercel} deploy hook on every article change, with per-file \textbf{Git} metadata extraction (commit, date, diff) displayed on each article.}
+                \resumeItem{Developed a portfolio website in \textbf{Next.js} / \textbf{React} showcasing my background, skills, experience and projects, fetching the latest blog articles via \textbf{REST API}. Deployed on \textbf{Vercel}.}
+            \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%---- Skills ----
+\section{Technical Skills}
+    \begin{itemize}[leftmargin=0.15in, label={}]
+        \small{\item{
+            \textbf{Languages} : Java, TypeScript, JavaScript, Python, SQL, PHP, HTML/CSS \\
+            \textbf{Frontend} : React, Vue.js, Next.js, Vitest, TanStack Query, Ant Design, MUI \\
+            \textbf{Backend} : Spring Boot, Express, FastAPI, Liquibase, Fastify, Node.js, JUnit, Jest \\
+            \textbf{AI \& LLMs} : LangChain, LangGraph, Prompt Engineering, RAG, Agentic RAG, Ollama, Pinecone, Qdrant \\
+            \textbf{DevOps \& CI/CD} : Docker, Kubernetes, Azure DevOps, Harbor, GitHub Actions, Renovate, Nexus \\
+            \textbf{Tools} : Git, GitHub, VS Code, IntelliJ, Postman, WSL, GitHub Copilot, Figma \\
+            \textbf{Methods} : Agile Development, GitFlow, Scrum
+        }}
+    \end{itemize}
+
+%---- Languages ----
+\section{Languages}
+    \textbf{French} (native), \textbf{English} (fluent/professional, C1)
+
+%-------------------------------------------
+\end{document}
