@@ -18,3 +18,18 @@ sudo apt-get install texlive texlive-fonts-extra texlive-latex-extra
 # Compile (outputs PDF next to the .tex)
 ./build.sh 2026/04/fr.tex
 ```
+
+## CLI reference
+
+```
+Usage: ./build.sh [options] <path/to/file.tex>
+       ./build.sh [options] --all
+
+Options:
+  -v    Verbose: print full pdflatex output (silent by default)
+
+Examples:
+  ./build.sh 2026/04/fr.tex        # build a single CV
+  ./build.sh --all                 # delete and rebuild every CV in the project
+  ./build.sh -v --all              # same, with full pdflatex output
+```

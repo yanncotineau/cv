@@ -5,6 +5,12 @@
 % License: MIT
 %-------------------------
 
+% Disable stream compression for broader printer driver compatibility.
+% Some GDI-based drivers silently fail on FlateDecode-compressed streams,
+% causing most content to disappear when printing directly from the PDF.
+\pdfcompresslevel=0
+\pdfobjcompresslevel=0
+
 \documentclass[letterpaper,11pt]{article}
 
 \usepackage[T1]{fontenc}
