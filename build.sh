@@ -40,5 +40,9 @@ else
   echo ""
   echo "Options:"
   echo "  -v    Verbose: print full pdflatex output"
+  echo ""
+  echo "Examples:"
+  echo "  ./build.sh src/fr.tex"
+  echo "  ./build.sh --all"
   exit 1
 fi
