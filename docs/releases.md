@@ -10,6 +10,6 @@ To publish a new version, set the same `YYYY-MM-DD` date in both files and push 
 
 The [workflow](../.github/workflows/build-cv.yml) then takes over. It reads the date from both files and fails if they differ or don't parse. It compiles both PDFs, tags the commit with the date (e.g. `2026-04-11`), and publishes a release named after it (e.g. "CV - April 11th, 2026") with the two PDFs attached.
 
-Pushing again with the same date replaces that day's release: the tag moves to the new commit and the release is updated with fresh PDFs, so same-day fixes just work.
+Pushing again with the same date never touches the existing release: the workflow picks the next free tag (`2026-04-11-2`, `-3`, ...) and publishes a new release titled with a `#2`, `#3`, ... suffix.
 
 The newest release is always marked as latest, which keeps the permanent download links in the [README](../README.md) pointing at the current PDFs.

@@ -47,7 +47,19 @@ jobs:
           esac
           TITLE="CV - $(date -d "$FR_DATE" +%B) ${DAY}${SUFFIX}, ${FR_DATE:0:4}"
 
+          # same-day releases get -N tags and #N titles; existing releases are never touched
+          TAG="$FR_DATE"
+          N=1
+          while git ls-remote --exit-code --tags origin "refs/tags/$TAG" > /dev/null; do
+            N=$((N+1))
+            TAG="$FR_DATE-$N"
+          done
+          if [ "$N" -gt 1 ]; then
+            TITLE="$TITLE #$N"
+          fi
+
           echo "date=$FR_DATE" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           echo "title=$TITLE" >> "$GITHUB_OUTPUT"
 
       - name: Compile FR CV to PDF
@@ -67,16 +79,10 @@ jobs:
           cp src/fr.pdf COTINEAU_Yann_CV_fr.pdf
           cp src/en.pdf COTINEAU_Yann_CV_en.pdf
 
-      # same-day re-release: move the day's tag to this commit
-      - name: Point tag at current commit
-        run: |
-          git tag -f "${{ steps.version.outputs.date }}"
-          git push --force origin "refs/tags/${{ steps.version.outputs.date }}"
-
-      - name: Create or update release
+      - name: Create release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.version.outputs.date }}
+          tag_name: ${{ steps.version.outputs.tag }}
           name: ${{ steps.version.outputs.title }}
           body: |
             CV PDFs built from the `${{ steps.version.outputs.date }}` sources.
