@@ -67,19 +67,20 @@ jobs:
           cp src/fr.pdf COTINEAU_Yann_CV_fr.pdf
           cp src/en.pdf COTINEAU_Yann_CV_en.pdf
 
-      - name: Publish release
-        env:
-          GH_TOKEN: ${{ github.token }}
+      # same-day re-release: move the day's tag to this commit
+      - name: Point tag at current commit
         run: |
-          TAG="${{ steps.version.outputs.date }}"
-          # re-releasing the same date: drop the old release+tag so both move to this commit
-          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
-            gh release delete "$TAG" --repo "$GITHUB_REPOSITORY" --cleanup-tag --yes
-          fi
-          gh release create "$TAG" \
-            --repo "$GITHUB_REPOSITORY" \
-            --target "$GITHUB_SHA" \
-            --title "${{ steps.version.outputs.title }}" \
-            --notes "CV PDFs built from the \`$TAG\` sources." \
-            --latest \
-            COTINEAU_Yann_CV_fr.pdf COTINEAU_Yann_CV_en.pdf
+          git tag -f "${{ steps.version.outputs.date }}"
+          git push --force origin "refs/tags/${{ steps.version.outputs.date }}"
+
+      - name: Create or update release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.date }}
+          name: ${{ steps.version.outputs.title }}
+          body: |
+            CV PDFs built from the `${{ steps.version.outputs.date }}` sources.
+          make_latest: true
+          files: |
+            COTINEAU_Yann_CV_fr.pdf
+            COTINEAU_Yann_CV_en.pdf
